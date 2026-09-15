@@ -32,8 +32,8 @@ job_id: solar_flare_forecasting
 # -----------------------------------------------------------------------------
 data:
   # -- Paths (relative to this file's directory) --
-  train_data_path: ../../../data/indices/surya_aws_s3_train.csv
-  valid_data_path: ../../../data/indices/surya_aws_s3_val.csv
+  train_data_path: ../../../data/indices/sep_data.csv
+  valid_data_path: ../../../data/indices/sep_data.csv
   scalers_path: ../assets/scalers.yaml
 
   # -- Input channels and temporal sampling --
@@ -79,7 +79,7 @@ data:
   #
   # If none is set and the index contains s3:// paths, the run fails immediately with a
   # suggested path — not part-way through the first epoch. ~ and $ENV_VARS are expanded.
-  s3_cache_dir: null
+  s3_cache_dir: "s3_cache_dir: /home/jovyan/scratch_space/surya_cache"
 
   # -- S3 transfer tuning --
   # These control boto3's multipart download: how many threads download parts in
@@ -208,5 +208,5 @@ output:
 # Logging
 # -----------------------------------------------------------------------------
 logging:
-  wandb_project: template_flare_regression
+  wandb_project: naman_model
   wandb_entity: null      # WandB team/org name; null to log to your personal account
