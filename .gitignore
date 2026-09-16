@@ -235,3 +235,5 @@ wandb/
 unified_report.md
 variance_accounting.txt
 upstream/main
+*.nc
+s3_cache_dir/
