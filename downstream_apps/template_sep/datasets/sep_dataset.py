@@ -140,7 +140,7 @@ class SEPDSDataset(HelioNetCDFDataset):
         )
         df_valid = pd.merge_asof(
             df_valid,
-            self.ds_index[["ds_index", "sep_label"]],
+            self.ds_index[["ds_index", "sep_label","flare_strength"]],
             right_on="ds_index",
             left_on="valid_indices",
             direction=ds_match_direction,
@@ -215,7 +215,10 @@ class SEPDSDataset(HelioNetCDFDataset):
             ``forecast`` and ``lead_time_delta``).
         """
         sample = super().__getitem__(idx=idx) if self.return_surya_stack else {}
+
+        print(self.ds_index.columns.tolist())
         row = self.df_valid_indices.iloc[idx]
         sample["sep"] = row["sep_label"]                      # np.float32, 0.0 or 1.0
         sample["ds_index"] = row["ds_index"].isoformat()      # e.g. "2017-09-10T00:00:00"
+        sample["flare_strength"] = row["flare_strength"]  
         return sample

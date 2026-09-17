@@ -191,7 +191,7 @@ class SEPLightningModule(L.LightningModule):
         torch.Tensor
             The scalar training loss used for backpropagation.
         """
-        target = batch["SEP"].unsqueeze(1).float()
+        target = batch["sep"].unsqueeze(1).float()
 
         if self.preprocess_fn is not None:
             batch = self.preprocess_fn(batch)
@@ -236,7 +236,7 @@ class SEPLightningModule(L.LightningModule):
           of this method are reported only and do not affect checkpoint selection.
         - No value is returned (Lightning uses logs for validation tracking).
         """
-        target = batch["SEP"].unsqueeze(1).float()
+        target = batch["sep"].unsqueeze(1).float()
 
         if self.preprocess_fn is not None:
             batch = self.preprocess_fn(batch)
