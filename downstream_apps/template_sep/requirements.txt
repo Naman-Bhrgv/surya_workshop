@@ -1,0 +1,14 @@
+lightning
+peft
+torchmetrics
+s3fs
+einops
+huggingface_hub
+datasets
+hf_transfer
+timm
+boto3
+xarray
+numba
+hdf5plugin
+scikit-image

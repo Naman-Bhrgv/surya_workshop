@@ -143,7 +143,7 @@ def build_helio_dataloaders(
     loader_kwargs = dict(
         batch_size=cfg.batch_size,
         num_workers=workers,
-        pin_memory=True,
+        pin_memory=False,
         drop_last=True,
     )
     if workers > 0:
